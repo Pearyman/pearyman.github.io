@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>js检测手机是否安装某一app | Pearyman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="需求总是人来提及的。
+如果在OC中检测手机中是否有某一个应用，这个还是可以判断的。但是如果纯在一个h5页面呢？或许，这在前端看来，似乎是不可能的事情。但是就像刚才所说的，如今大部分都是原生和h5混杂开发模式。如果一个分享h5页面或者一个分享出来的宣传h5页面有这样跳转的需求呢？在我看来，好像也是不可能完成的。我一个页面怎么能检测手机呢？
+
+未雨绸缪一下。(万一以后有个美女产品妹子提这样的需求呢？你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js检测手机是否安装某一app">
+<meta property="og:url" content="http://yoursite.com/2015/04/15/js检测手机是否安装某一app/index.html">
+<meta property="og:site_name" content="Pearyman">
+<meta property="og:description" content="需求总是人来提及的。
+如果在OC中检测手机中是否有某一个应用，这个还是可以判断的。但是如果纯在一个h5页面呢？或许，这在前端看来，似乎是不可能的事情。但是就像刚才所说的，如今大部分都是原生和h5混杂开发模式。如果一个分享h5页面或者一个分享出来的宣传h5页面有这样跳转的需求呢？在我看来，好像也是不可能完成的。我一个页面怎么能检测手机呢？
+
+未雨绸缪一下。(万一以后有个美女产品妹子提这样的需求呢？你">
+<meta property="og:image" content="http://7xn7op.com1.z0.glb.clouddn.com/xinren.gif">
+<meta property="og:image" content="http://7xn7op.com1.z0.glb.clouddn.com/taobao.png">
+<meta property="og:image" content="http://7xn7op.com1.z0.glb.clouddn.com/daima.png">
+<meta property="og:updated_time" content="2016-04-20T09:42:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js检测手机是否安装某一app">
+<meta name="twitter:description" content="需求总是人来提及的。
+如果在OC中检测手机中是否有某一个应用，这个还是可以判断的。但是如果纯在一个h5页面呢？或许，这在前端看来，似乎是不可能的事情。但是就像刚才所说的，如今大部分都是原生和h5混杂开发模式。如果一个分享h5页面或者一个分享出来的宣传h5页面有这样跳转的需求呢？在我看来，好像也是不可能完成的。我一个页面怎么能检测手机呢？
+
+未雨绸缪一下。(万一以后有个美女产品妹子提这样的需求呢？你">
+<meta name="twitter:image" content="http://7xn7op.com1.z0.glb.clouddn.com/xinren.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Pearyman" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ac-a5zjlnxg.clouddn.com/313ff8d16920192b.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Pearyman</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Pearyman" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wo-shi-dong-dong-qiang" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/pearyman@gmail.com" title="mail">mail</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100008141140701" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/icon/" style="font-size: 10px;">icon</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/切图/" style="font-size: 10px;">切图</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Pearyman</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ac-a5zjlnxg.clouddn.com/313ff8d16920192b.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Pearyman</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Pearyman" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wo-shi-dong-dong-qiang" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/pearyman@gmail.com" title="mail">mail</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100008141140701" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-js检测手机是否安装某一app" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/04/15/js检测手机是否安装某一app/" class="article-date">
+  	<time datetime="2015-04-14T16:39:11.000Z" itemprop="datePublished">2015-04-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js检测手机是否安装某一app
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需求总是人来提及的。</p>
+<p>如果在OC中检测手机中是否有某一个应用，这个还是可以判断的。<br>但是如果纯在一个<a href="">h5页面</a>呢？或许，这在前端看来，似乎是不可能的事情。但是就像刚才所说的，如今大部分都是原生和h5混杂开发模式。<br>如果一个分享h5页面或者一个分享出来的宣传h5页面有这样跳转的需求呢？<br>在我看来，好像也是不可能完成的。我一个页面怎么能检测手机呢？</p>
+<p><img src="http://7xn7op.com1.z0.glb.clouddn.com/xinren.gif" width="300" height="350"></p>
+<p><a href="">未雨绸缪</a>一下。(万一以后有个美女产品妹子提这样的需求呢？你岂不是可以立马<em>满足</em>她)</p>
+<hr>
+<h6 id="淘宝"><a href="#淘宝" class="headerlink" title="淘宝"></a>淘宝</h6><p>难以解决的问题，我默默的打开了淘宝。</p>
+<p>WAP页面。找啊找找啊找找啊找。虽然本人编码很菜，但是找代码的能力还是可以的。<br>来，看这里看这里。<br><img src="http://7xn7op.com1.z0.glb.clouddn.com/taobao.png" alt="alt title"><br>虽然，他们把代码都压缩了，看起来很费劲。但我依然不想错失未来在妹子面前表现自己的机会。<br>然后，我就找到了。<br><img src="http://7xn7op.com1.z0.glb.clouddn.com/daima.png" alt="alt title"><br>这个代码太难整理了，但是至少我明白了整体的思路。<br>于是，我就觉得，这个东西既然他们能做，那我也能做。</p>
+<h6 id="js检测手机是否安装某一app-实现思路"><a href="#js检测手机是否安装某一app-实现思路" class="headerlink" title="js检测手机是否安装某一app(实现思路)"></a>js检测手机是否安装某一app(实现思路)</h6><p><a href="">重点</a>其实主要就是比较的是页面跳转到应用的这段时间(装逼的说法叫做时间阀值)</p>
+<p>1，进入下载页面，如果手机中存在app，则跳转app,这个时候，网页进入后台从而js挂起，但这个期间大约还有600ms-1000msjs 仍然在执行。</p>
+<p>2，所以，我做了个定时函数，如果在当前页面所待的时间比这个阀值(跳转临界值)大的时候，则说明没有应用。这个时候，就可以进行下一步的跳转工作了。</p>
+<p>######参考代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var timeout, t = 1000, hasApp = true;   //这个临界点比较关键  一般是在600-1000ms</span><br><span class="line">    setTimeout(function () &#123;  </span><br><span class="line">        if (hasApp) &#123;  </span><br><span class="line">            alert(&apos;手机中存在该应用&apos;);     //实际上，这个时候已经跳转到应用中去了</span><br><span class="line">        &#125; else &#123;  </span><br><span class="line">            alert(&apos;没有应用&apos;);              //这里可以进行下一步跳转操作</span><br><span class="line">        &#125;  </span><br><span class="line">        document.body.removeChild(ifr);  </span><br><span class="line">    &#125;, 2000)  </span><br><span class="line">  </span><br><span class="line">    var t1 = Date.now();   </span><br><span class="line">    var ifr = document.createElement(&quot;iframe&quot;);</span><br><span class="line">        </span><br><span class="line">    ifr.setAttribute(&apos;src&apos;, &apos;#此处放置原生程序所留得入口地址#&apos;);  </span><br><span class="line">    ifr.setAttribute(&apos;style&apos;, &apos;display:none&apos;);</span><br><span class="line">    document.body.appendChild(ifr);</span><br><span class="line">    timeout = setTimeout(function () &#123;  </span><br><span class="line">         var t2 = Date.now();  </span><br><span class="line">         if (!t1 || t2 - t1 &lt; t+100) &#123;  </span><br><span class="line">             hasApp = false;  </span><br><span class="line">         &#125;  </span><br><span class="line">    &#125;, t);  </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>好了，我该说的都说完了，该研究的也都研究了。就等机会了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/22/text-decoration的更多属性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          text-decoration的更多属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/26/关于移动端icon的思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于移动端icon的思考</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="js检测手机是否安装某一app" data-title="js检测手机是否安装某一app" data-url="http://yoursite.com/2015/04/15/js检测手机是否安装某一app/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Pearyman
+    	</div>
+      	<div class="footer-right"></div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
