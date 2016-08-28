@@ -94,6 +94,8 @@
                 <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
                 <ul class="sb-submenu">
                     
+                        <li><a href="/2016/07/28/前端导航插件/" target="_BLANK" class="animsition-link">前端导航插件</a></li>
+                    
                         <li><a href="/2016/04/28/因上努力-果上随缘/" target="_BLANK" class="animsition-link">因上努力,果上随缘</a></li>
                     
                         <li><a href="/2016/03/20/《一万小时天才理论》/" target="_BLANK" class="animsition-link">《一万小时天才理论》</a></li>
@@ -195,6 +197,11 @@
           2016-01-10
       </time>
     
+    
+    | 
+    <a href='/tags/js/'>js</a>
+    
+    
 </span>
                 <h1>关于文件上传返回JSON数据，在IE下提示下载文件的问题？</h1>
             </div>
@@ -209,10 +216,10 @@
 <p>我当真不晓得这是个什么玩意，只是一个劲的觉得，当初我真是好傻逼干了前端这个行业，（被兼容搞死）。</p>
 <p>我当然是不能够屈服的了。</p>
 <p>找了找网上，发现还有人和我出现了一样的问题。</p>
-<p>最终，发现问题的导向是后台再给我response的header头的是这个样子的 </p>
-<pre><code>&apos;Content-Type:text/json; charset=utf-8&apos; 
+<p>最终，发现问题的导向是后台再给我response的header头的是这个样子的</p>
+<pre><code>&apos;Content-Type:text/json; charset=utf-8&apos;
 </code></pre><p>一般这里都是为了兼容ie都是写成这个样子的吧。</p>
-<pre><code>&apos;Content-Type:text/html; charset=utf-8&apos; 
+<pre><code>&apos;Content-Type:text/html; charset=utf-8&apos;
 </code></pre><p>IE10可以支持application/json格式的Response了，也就是说低于IE10版本一下的IE浏览器都需要使用text/html格式的Response。所以，索性就都要换成’Content-Type:text/html; charset=utf-8’ 。</p>
 <p>Response头中指定Content-Type为text/html，而并非text/html，是可以解决问题的。这样返回给客户端的是一个JSON字符串（并非JSON对象），无需IE来解析。随后，使用JSON.parse()函数将JSON字符串解析为JSON对象即可。也怪不得在没有改之前 我$.parseJSON这样是会报错的呢，因为人后台直接就把JSON给我搞过来了。。。。</p>
 <p>后来再去别的大网站看看，原来真的都是这样的。</p>
