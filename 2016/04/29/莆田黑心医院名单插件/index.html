@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于文件上传返回JSON数据，在IE下提示下载文件的问题？ | Pearyman</title>
+  <title>莆田黑心医院名单插件 | Pearyman</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -195,56 +195,58 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-01-10T14:12:10.000Z" itemprop="datePublished">
-          2016-01-10
+      <time datetime="2016-04-29T01:51:28.000Z" itemprop="datePublished">
+          2016-04-29
       </time>
     
-    
-    | 
-    <a href='/tags/js/'>js</a>
-    
-    
 </span>
-                <h1>关于文件上传返回JSON数据，在IE下提示下载文件的问题？</h1>
+                <h1>莆田黑心医院名单插件</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>恩，没错。很久没有写东西的我今天就想来说说这个问题到底是怎么回事？</p>
-<p>问题是这个样子的。</p>
-<p>我今天在做项目的时候，当我写完了一个upload组件后，做了一个异步的ajax需要后台把上传的结果传给我。在一些高级浏览器下是么有什么问题的。但是当我在ie8、ie9下测试的时候，发现了这样一种情况：</p>
-<p>当我把文件上传后，浏览器竟然弹出了让我下载的东西。</p>
-<a id="more"></a>
-<p><img src="http://static.oschina.net/uploads/space/2013/0829/145946_hTrP_223750.jpg"></p>
-<p>我当真不晓得这是个什么玩意，只是一个劲的觉得，当初我真是好傻逼干了前端这个行业，（被兼容搞死）。</p>
-<p>我当然是不能够屈服的了。</p>
-<p>找了找网上，发现还有人和我出现了一样的问题。</p>
-<p>最终，发现问题的导向是后台再给我response的header头的是这个样子的</p>
-<pre><code>&apos;Content-Type:text/json; charset=utf-8&apos;
-</code></pre><p>一般这里都是为了兼容ie都是写成这个样子的吧。</p>
-<pre><code>&apos;Content-Type:text/html; charset=utf-8&apos;
-</code></pre><p>IE10可以支持application/json格式的Response了，也就是说低于IE10版本一下的IE浏览器都需要使用text/html格式的Response。所以，索性就都要换成’Content-Type:text/html; charset=utf-8’ 。</p>
-<p>Response头中指定Content-Type为text/html，而并非text/html，是可以解决问题的。这样返回给客户端的是一个JSON字符串（并非JSON对象），无需IE来解析。随后，使用JSON.parse()函数将JSON字符串解析为JSON对象即可。也怪不得在没有改之前 我$.parseJSON这样是会报错的呢，因为人后台直接就把JSON给我搞过来了。。。。</p>
-<p>后来再去别的大网站看看，原来真的都是这样的。</p>
-<p>珍爱生命，远离前端，PHP我来了。</p>
+      		<hr>
+<h2 id="1，事情的起因"><a href="#1，事情的起因" class="headerlink" title="1，事情的起因"></a>1，事情的起因</h2><p>首先先请大家自行百度<a href="http://baike.baidu.com/link?url=u47u_wWXEdf6qCmo76pMZQPKr7bjH-o0PQNJaHjmvSaJ2inKLaCub7IJNtx1T2i3QJe6ZnKeITgKFNLRQTaZI5jjwwAtudi6n3QAXhgsZd-JKkmkrMND7n_4LfkAWDIn6fOCPzCE0fnJsvXCZstpnKNaygq-sxAT62mzo4HYZ1dYdaxj-IOmlJSRe3DlZGKjdfCdfLW__CpDEI1t_S6Rya" target="_blank" rel="external">魏则西事件</a></p>
+<h2 id="2，正义感的油然而生"><a href="#2，正义感的油然而生" class="headerlink" title="2，正义感的油然而生"></a>2，正义感的油然而生</h2><p>希望本款插件能够帮助大家不再受黑心医院的坑害。作为一名程序员，能力有限，只能够略尽微薄之力帮助大家。</p>
+<h2 id="3，使用方法"><a href="#3，使用方法" class="headerlink" title="3，使用方法"></a>3，使用方法</h2><p>我还是希望大家多翻墙出去看看外面的世界，所以送上<a href="https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E9%BB%91%E5%BF%83%E5%8C%BB%E9%99%A2%E5%90%8D%E5%8D%95%E6%8F%92%E4%BB%B6/ieogbmijfpmdlkdifblkcgomfmonmfbc?hl=zh-CN" target="_blank" rel="external">谷歌商店传送门</a></p>
+<p>点击红框内的添加即可。</p>
+<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160723-0%402x.png" alt="alt title"></p>
+<h2 id="4，功能介绍"><a href="#4，功能介绍" class="headerlink" title="4，功能介绍"></a>4，功能介绍</h2><ul>
+<li>其中涵盖了全国各大省市自治区的莆田系医院数百所。</li>
+<li><p>访问疑似莆田系医院会有弹出框警告。</p>
+<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160712-0%402x.png" alt="alt title"></p>
+</li>
+<li><p>会将百度推广的内容屏蔽掉</p>
+<p>屏蔽前：<br><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160712-4%402x.png" alt="alt title"><br>屏蔽后：<br><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160712-10%402x.png" alt="alt title"></p>
+</li>
+</ul>
+<h2 id="5，项目地址"><a href="#5，项目地址" class="headerlink" title="5，项目地址"></a>5，项目地址</h2><p>  项目地址<a href="https://github.com/Pearyman/fu-kBlackHeartedHospital" target="_blank" rel="external">https://github.com/Pearyman/fu-kBlackHeartedHospital</a></p>
+<p>  您们给个星星（star）是对我莫大的鼓励，感谢！</p>
+<hr>
+<h2 id="喜大普奔的v1-0-3已经更新"><a href="#喜大普奔的v1-0-3已经更新" class="headerlink" title="喜大普奔的v1.0.3已经更新"></a>喜大普奔的v1.0.3已经更新</h2><p>  请到<a href="https://chrome.google.com/webstore/detail/bhhospitals/ieogbmijfpmdlkdifblkcgomfmonmfbc?hl=zh-CN" target="_blank" rel="external">chrome应用商店下载最新版本</a></p>
+<p>  更新内容：</p>
+<p>  将查询后的百度推广内容屏蔽掉</p>
+<p>  ##todo</p>
+<p>  因为精力有限，将hospitals.js文件中的数据拿出来。希望大家通过pull request 来更新此份数据以及其中的链接部分。</p>
+<p>  作为程序员，这也算是我们为大家尽了一丝绵薄之力了吧。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/03/20/《一万小时天才理论》/" style="float: left;">
-        ← 《一万小时天才理论》
+    <a class="pull-left" href="/2016/07/28/前端导航插件/" style="float: left;">
+        ← 前端导航插件
     </a>
     
     
-    <a class="pull-right" href="/2015/12/31/再见2015/">
-        再见2015 →
+    <a class="pull-right" href="/2016/04/28/因上努力-果上随缘/">
+        因上努力,果上随缘 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/01/10/关于文件上传返回JSON数据，在IE下提示下载文件的问题？/" data-title="关于文件上传返回JSON数据，在IE下提示下载文件的问题？" data-url="http://yoursite.com/2016/01/10/关于文件上传返回JSON数据，在IE下提示下载文件的问题？/"></div>
+<div class="ds-thread" data-thread-key="2016/04/29/莆田黑心医院名单插件/" data-title="莆田黑心医院名单插件" data-url="http://yoursite.com/2016/04/29/莆田黑心医院名单插件/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"pearyman"};
 (function() {
