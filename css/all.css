@@ -253,9 +253,11 @@ a:active,
 a:focus,
 a:visited,
 a:link {
-	/*color: #151515;*/
-	/*/text-decoration: none;*/
+	color: #151515;
+	text-decoration: none;
 }
+
+
 [class*="col-"] {
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -3599,5 +3601,6 @@ pre .clojure .title {
 pre .deletion {
   color: #dc322f;
 }
-table{border-top:1px solid #000; border-left:1px solid #000;}
-table tr td{border-right:1px solid #000; border-bottom:1px solid #000;}
+table{border-top:1px solid gray; border-left:1px solid gray;}
+table thead {border-bottom: 1px solid gray;}
+table tr td{border-right:1px gray; border-bottom:1px solid gray;}
