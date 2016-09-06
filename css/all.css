@@ -221,6 +221,9 @@ h4 {
 	line-height: 30px;
 	color: #333333;
 }
+table{border-top:1px solid gray; border-left:1px solid gray;}
+table thead tr th{border-right:1px solid gray; border-bottom: 1px solid gray;}
+table tr td{border-right:1px solid gray; border-bottom: 1px solid gray;}
 h1 span,
 h2 span,
 h3 span,
