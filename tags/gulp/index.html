@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>gulp-file-include实践 | Pearyman</title>
+  <title>Tag: gulp | Pearyman</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -74,7 +74,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -191,65 +191,69 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2016-08-08T07:51:38.000Z" itemprop="datePublished">
-          2016-08-08
-      </time>
-    
-    
-    | 
-    <a href='/tags/gulp/'>gulp</a>
-    
-    
-</span>
-                <h1>gulp-file-include实践</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(http://ac-a5zjlnxg.clouddn.com/6100fc0916c69e91.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2>因上努力,果上随缘。</h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p></p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<p>俺说句实话，在目前动态语言横行大道的时候，特别是php等语言都是可以将一些网站的公共部分提炼成common的时候，我这篇完全就是一篇填坑文章。</p>
-<p>说下改的初衷。那还不是前一个都写成了静态html,使我这个后来人每次改动官网都很不爽。特别是公共的header、footer、aside等这种。每次一上个活动，都是想死的心都有。</p>
-<p>原来每次交给下面的活大家都是改起来这么麻烦的，后来发现之，改之。</p>
-<p>当然，就像我之前所说的，php,jsp哪怕是react等就不用往下看了。</p>
-<p>其实，node中的jade、ejs等是都可以完成的，但是我也是综合了现在的包括腾讯的ant-template等现有的静态模板渲染框架之后，找到了一种最简单的方式—gulp-file-include。</p>
-<h4 id="package-json配置"><a href="#package-json配置" class="headerlink" title="package.json配置"></a>package.json配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;application-name&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.8.11&quot;,</span><br><span class="line">    &quot;gulp-minify-css&quot;: &quot;^1.1.0&quot;,</span><br><span class="line">    &quot;gulp-processhtml&quot;: &quot;^1.1.0&quot;,</span><br><span class="line">    &quot;gulp-rename&quot;: &quot;^1.2.2&quot;,</span><br><span class="line">    &quot;gulp-uglify&quot;: &quot;^1.2.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;gulp-file-include&quot;: &quot;^0.14.0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="gulpfile-js配置"><a href="#gulpfile-js配置" class="headerlink" title="gulpfile.js配置"></a>gulpfile.js配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var fileinclude = require(&apos;gulp-file-include&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;fileinclude&apos;, function() &#123;</span><br><span class="line">    gulp.src(&apos;public/layouts/**.html&apos;)</span><br><span class="line">        .pipe(fileinclude(&#123;</span><br><span class="line">            prefix: &apos;@@&apos;,</span><br><span class="line">            basepath: &apos;@file&apos;</span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(gulp.dest(&apos;public&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>通过<code>gulp fileinclude</code> 轻松完成替换，不过，替换后的html代码在格式上不是那么完美。但是很不错的解决了问题，以后不用在花时间跟搬砖似的做这种体力活了。☺</p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    
-    <a class="pull-right" href="/2016/08/01/浅谈Cookie、LocalStorage和SessionStorage区别/">
-        浅谈Cookie、LocalStorage和SessionStorage区别 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/08/08/gulp-file-include实践/" data-title="gulp-file-include实践" data-url="http://yoursite.com/2016/08/08/gulp-file-include实践/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"pearyman"};
-(function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-</div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2016/08/08/gulp-file-include实践/">gulp-file-include实践</a></h4>
+                            
+                            <p><time datetime="2016-08-08T07:51:38.000Z"><a href="/2016/08/08/gulp-file-include实践/">2016-08-08</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p></p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 
