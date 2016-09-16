@@ -34,8 +34,8 @@
     <![endif]-->
 
     <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
-    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <!-- <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
 
     <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
     <!--[if IE]>
@@ -214,13 +214,13 @@
       		<p>说到font-family,看到身边的同事一般都是这么写的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-family:&apos;微软雅黑&apos;</span><br></pre></td></tr></table></figure>
 <p>刚开始的时候，我也是这么写的，但是却出现了问题：</p>
-<h4 id="问题1："><a href="#问题1：" class="headerlink" title="问题1："></a>问题1：</h4><p>  有一天，我没找到线上一个页面的代码。我就从线上的页面拷贝了一份下来。打开一看，我傻眼了，除了html,css标签外，全部都是乱码。</p>
-<p> 我以为是我的编码格式出了问题，后来，我找了font-family这里。</p>
-<p> 我是直接将font-family:”宋体”。</p>
-<p> 这里，我推荐大家使用字体Unicode编码来解决我这个问题。</p>
-<p> 这是我找到的一个较全的字体Unicode编码。</p>
-<p> <img src="http://ac-a5zjlnxg.clouddn.com/18767e908b19c71b.png" alt=""></p>
-<p> 对比下，三种方法各有优缺点：</p>
+<h1 id="问题1："><a href="#问题1：" class="headerlink" title="问题1："></a>问题1：</h1><p>有一天，我没找到线上一个页面的代码。我就从线上的页面拷贝了一份下来。打开一看，我傻眼了，除了html,css标签外，全部都是乱码。</p>
+<p>我以为是我的编码格式出了问题，后来，我找了font-family这里。</p>
+<p>我是直接将font-family:”宋体”。</p>
+<p>这里，我推荐大家使用字体Unicode编码来解决我这个问题。</p>
+<p>这是我找到的一个较全的字体Unicode编码。</p>
+<p><img src="http://ac-a5zjlnxg.clouddn.com/18767e908b19c71b.png" alt=""></p>
+<p>对比下，三种方法各有优缺点：</p>
 <ul>
 <li>中文形式的方便记忆，但在不支持中文的系统或者编码的页面则无法正常显示；</li>
 <li>英文形式的兼容了系统和编码的问题，但不方便记忆，又可能有潜在的风险；</li>

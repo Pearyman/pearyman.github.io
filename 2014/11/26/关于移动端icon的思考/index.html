@@ -34,8 +34,8 @@
     <![endif]-->
 
     <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
-    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <!-- <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
 
     <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
     <!--[if IE]>
@@ -213,26 +213,24 @@
         <div class="col-md-8 col-md-offset-2">
       		<p><img src="http://ac-a5zjlnxg.clouddn.com/a37ac2d7af5b70b4.png" alt="alt text"></p>
 <a id="more"></a>
-<p>&emsp;亲爱的同志们，这篇文章是我之前写过的，不是我的懒惰，而是我认为这篇很有作用，而且目前我们前端也是在广泛的执行中。</p>
-<p>&emsp;目前也参见了很多的移动端的应用。其中有一些比较微小的图标（比如右箭头，购物车….）。如果这种情况出现在web中，很简单，利用css sprites就可以很圆满的解决问题，一次请求，多次利用，对于web网站来说这确实是最适合的方法。但是在移动app中，这种做法却不赞成使用。</p>
-<p>&emsp;以前，我们的做法是将类似（首页，商城，社区…）这种小图标单独切片，然后保存png。这种做法虽然阶段性的问题得到了解决，但是还会出现一系列的问题。</p>
-<p>1，小图片要多次请求。<br>2，小图片是标量，如果在大的分辨率的屏幕下，这种使用必然会失真，导致效果极其不好(特别是图片中有暴露的妹子的时候)。</p>
+<p>亲爱的同志们，这篇文章是我之前写过的，不是我的懒惰，而是我认为这篇很有作用，而且目前我们前端也是在广泛的执行中。</p>
+<p>目前也参见了很多的移动端的应用。其中有一些比较微小的图标（比如右箭头，购物车….）。如果这种情况出现在web中，很简单，利用css sprites就可以很圆满的解决问题，一次请求，多次利用，对于web网站来说这确实是最适合的方法。但是在移动app中，这种做法却不赞成使用。</p>
+<p>以前，我们的做法是将类似（首页，商城，社区…）这种小图标单独切片，然后保存png。这种做法虽然阶段性的问题得到了解决，但是还会出现一系列的问题。</p>
+<p>1，小图片要多次请求。 2，小图片是标量，如果在大的分辨率的屏幕下，这种使用必然会失真，导致效果极其不好(特别是图片中有暴露的妹子的时候)。</p>
 <p>那么问题就来了，应该怎么办？</p>
-<p>&emsp;当css3出现后，很多从前要很费劲的东西得到了很大的颠覆。其中，有这样一个属性@font-face</p>
-<p>&emsp;利用这个标签我们可以将矢量的小图标svg生成一个小的图标字体ttf。这样很大程度的解决了我们的需求，从而在体验上得到很大程度的改观。</p>
+<p>当css3出现后，很多从前要很费劲的东西得到了很大的颠覆。其中，有这样一个属性@font-face</p>
+<p>利用这个标签我们可以将矢量的小图标svg生成一个小的图标字体ttf。这样很大程度的解决了我们的需求，从而在体验上得到很大程度的改观。</p>
 <p>这样做的好处总结如下:</p>
 <p>适用性：一个图标字体比一系列的图像（特别是在Retina屏中使用双倍大小的图像）要小。一旦图标字体加载了，你的图标就会马上渲染出来，不需要下载一个图像。</p>
 <p><strong>可扩展性</strong>：图标字体可以用过font-size属性设置其任何大小。这使您能够随时输出不同大小的图标，然而，使用位图，你必须得为每个不同大小的图像输出一个不同文件。</p>
 <p><strong>灵活性</strong>：文字效果可以很容易地应用到你的图标上，包括颜色，阴影和翻转等效果。他们还可以在任何背景下显示。</p>
 <p><strong>兼容性</strong>：网页字体支持所有现代浏览器，包括IE低版本。</p>
-<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><p>1，这种做法还是比较简单。 icon设计者通过AI等软件等比例（这里的意思是指一组icon的宽高要一致)，形成svg矢量图形。记住：这里要在软件中保存为svg格式。<br></p>
-<p>2，<a href="https://icomoon.io/app/#/select" target="_blank" rel="external">https://icomoon.io/app/#/select</a>  通过icomoon这个在线工具将svg导入，点选你所需要的icon，<br></p>
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>1，这种做法还是比较简单。 icon设计者通过AI等软件等比例（这里的意思是指一组icon的宽高要一致)，形成svg矢量图形。记住：这里要在软件中保存为svg格式。<br></p>
+<p>2，<a href="https://icomoon.io/app/#/select" target="_blank" rel="external">https://icomoon.io/app/#/select</a> 通过icomoon这个在线工具将svg导入，点选你所需要的icon，<br></p>
 <p>3，download所形成的字体文件（格式为TTF）。<br></p>
 <p>剩下的就是利用@font-face这个标签来导入我们所需要的字体文件了。<br></p>
-<p>#####补充：</p>
-<p>其实icomoon上的免费图标就足以满足我们项目中的需求。当然这个是国外人做的。我们国内淘宝好像也有这么一套东西，感兴趣的童鞋可以网上找找看看。</p>
-<p>#####再次补充：</p>
-<p>国内淘宝的是：<a href="http://iconfont.cn/" target="_blank" rel="external">http://iconfont.cn/</a></p>
+<h1 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h1><p>其实icomoon上的免费图标就足以满足我们项目中的需求。当然这个是国外人做的。我们国内淘宝好像也有这么一套东西，感兴趣的童鞋可以网上找找看看。</p>
+<h1 id="再次补充："><a href="#再次补充：" class="headerlink" title="再次补充："></a>再次补充：</h1><p>国内淘宝的是：<a href="http://iconfont.cn/" target="_blank" rel="external">http://iconfont.cn/</a></p>
 <p>这个还是不错的，毕竟国产的很符合我们中国的基本国情，毕竟大(tu)神(bi)们还是在用着ie以及各种ie内核外面包个皮肤就算自己的浏览器的XX们。</p>
 
             <div class="clearfix"></div>
