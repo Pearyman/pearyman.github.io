@@ -113,6 +113,8 @@ h4 {
 table{border-top:1px solid gray; border-left:1px solid gray;}
 table thead tr th{border-right:1px solid gray; border-bottom: 1px solid gray;}
 table tr td{border-right:1px solid gray; border-bottom: 1px solid gray;}
+.highlight table{border:0;}
+.highlight table tr td{border:0;}
 h1 span,
 h2 span,
 h3 span,
