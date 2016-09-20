@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>中秋节 | Pearyman</title>
+  <title>svg-sprites | Pearyman</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -197,44 +197,116 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-09-15T15:17:42.000Z" itemprop="datePublished">
-          2016-09-15
+      <time datetime="2016-09-20T06:20:40.000Z" itemprop="datePublished">
+          2016-09-20
       </time>
     
     
     | 
-    <a href='/tags/随笔/'>随笔</a>
+    <a href='/tags/优化/'>优化</a>
     
     
 </span>
-                <h1>中秋节</h1>
+                <h1>svg-sprites</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">举杯邀明月，对影成三人。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但愿人长久，千里共婵娟。</span><br></pre></td></tr></table></figure>
-<p>其实，还是有感而发，遂笔墨纸砚摆好。写下：</p>
-<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/0917_1.jpg" alt=""></p>
-<p>其实字写得不好，只怪拍的角度太TM好了。😁。</p>
+      		<p>几年前，我们前端的优化方式中无疑都会有css-sprites(俗称雪碧图、精灵模式等杀马特名称)这种方法。 无论是前端的笔试、面试都会来鬼扯一些这样的性能优化。但是，在前端技术变革超级快的时代，现如今如果还在用这种方式的，不仅也许会被扣上不思进取的帽子。</p>
+<p>先说说我自己，css-sprites这种方式在两年前我就不那么太用了。但是有的时候的广告页面也会合并图片。</p>
+<p>首先变革的应该是web端。两年前，我写过一篇iconfont的文章。这种方式是用字体来解决网页中的一些小图标问题。极大的解决了在不同分辨率的电脑屏幕下，有些css-sprites方式合成的图片会出现失真的问题。而现如今，web端也是在用这种字体库的模式。</p>
+<ul>
+<li><p><a href="https://icomoon.io/app/#/select" target="_blank" rel="external">https://icomoon.io/app/#/select</a></p>
+</li>
+<li><p><a href="https://iconfont.cn" target="_blank" rel="external">https://iconfont.cn</a></p>
+</li>
+</ul>
+<p>上述的这两个链接都是制作iconfont的好用网站，这里我也不用在赘述这种方式的使用方法。而今天，我们主要是要讲就是这个svg-sprites.</p>
+<h4 id="svg-sprites"><a href="#svg-sprites" class="headerlink" title="svg-sprites"></a>svg-sprites</h4><h5 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h5><p>首先，我认为svg-sprites这项技术是目前可以用在手机端的。因为webkit内核的原因可以让svg-sprites兼容的很好。而在pc端，经过我的测试，mac上的chrome、safari、Firefox、 Opera都兼容的不错。windows上的ie以及360的兼容模式均不支持，这在我国360、搜狗等浏览器大肆横飞的时代，显然，用svg-sprites在pc上是不明智的，显然也是挖坑的。</p>
+<p>所以，我以下做的以及我要应用的地方都是在webkit内核的浏览器上或是手机上。</p>
+<table>
+<thead>
+<tr>
+<th>优点</th>
+<th style="text-align:right">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.缩放无损还原，显示清晰</td>
+<td style="text-align:right">1.SVG在绘制的性能上比PNG要差</td>
+</tr>
+<tr>
+<td>2.语义性良好</td>
+<td style="text-align:right">2.局限性，对应单色或普通渐变没什么问题，但对不规则的渐变以及特效叠加效果显示不全</td>
+</tr>
+<tr>
+<td>3.可用CSS控制图标样式以及动画</td>
+<td style="text-align:right">3.兼容性稍差，android4.1才开始支持</td>
+</tr>
+<tr>
+<td>4.减少http请求</td>
+<td style="text-align:right">4.学习应用成本较高</td>
+</tr>
+</tbody>
+</table>
+<p>1，首先在上述我提到的两个网站中你都可以找得到你所要的svg图形。如果没有，但还是要应用于项目中，那你找设计要去啊。</p>
+<p>2，既然是svg-sprites,那肯定是要合成啊。这里其实有很多种方法来进行合成。所谓条条大路通罗马。这里我介绍一下我所用的比较好的方法。</p>
+<p>利用gulp进行安装。（没有安装gulp的请自行安装）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-svg-symbols  --save-dev</span><br></pre></td></tr></table></figure>
+<p>然后，配置gulp.我的配置是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var gulp = require(&quot;gulp&quot;);</span><br><span class="line">var symbols = require(&quot;gulp-svg-symbols&quot;);</span><br><span class="line">//转换svg</span><br><span class="line">gulp.task(&apos;svg&apos;, function() &#123;</span><br><span class="line">  return gulp.src(&apos;./svg/**&apos;)</span><br><span class="line">    .pipe(symbols())</span><br><span class="line">    .pipe(gulp.dest(&apos;out/&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">运行 gulp svg</span><br></pre></td></tr></table></figure>
+<p>我的项目目录是这个样子的:</p>
+<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160920-0@2x.png" alt=""></p>
+<p>对应html:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  svg&#123;display:inline-block; width:100px; height:100px; border:1px solid #ddd;&#125;</span><br><span class="line">  svg use.c1&#123;fill:red;&#125;</span><br><span class="line">  svg use.c2&#123;fill:skyblue;&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;svg class=&quot;icon&quot;&gt;</span><br><span class="line">     &lt;use xlink:href=&quot;/webexamples/svg/svg_sprites/out/svg-symbols.svg#1&quot; class=&quot;c1&quot;/&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;svg class=&quot;icon&quot;&gt;</span><br><span class="line">     &lt;use xlink:href=&quot;/webexamples/svg/svg_sprites/out/svg-symbols.svg#2&quot; class=&quot;c2&quot;/&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p>这里我来说一下，实际上引入svg有很多种办法。而我用的这种use的方法然后href到svg的绝对地址。这样实际上是为了减少请求。</p>
+<p>当然，你也可以把你合成完的svg放到页面中，然后通过id来获取对应的svg。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意： 我这种写法不能跨域，也就是说要和页面在通个项目下，域名保持一致。不然不显示。</span><br></pre></td></tr></table></figure>
+<p>好了，这回svg_sprites也生成了，html中也引入了，css也写了。让我们来run一下各个浏览器，看看效果。</p>
+<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/9A23C6DA-D992-4BB3-B67D-5DF24DFDCD00.png" alt=""></p>
+<p>WHAT? 这是什么鸟效果？ 为什么chrome上都是黑色的呢。我明明在css中写了红色啊。</p>
+<p>为什么？为什么? 为什么？<img src="http://7xw3j4.com1.z0.glb.clouddn.com/blog_04_2.gif" alt=""></p>
+<p>于是，自检开始了。我茶不思饭不想看了一天啊。我™google啊，我™stackoverflow啊，我™最后实在没招都百度了。 我™在github和别人的博客下面留言问人啊。最后…</p>
+<p>发现合成的svg中有一个fill属性，浏览器默认为那个fill的优先级最高，而不认我写的css .</p>
+<p>罪魁祸首：<img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160920-1@2x.png" alt=""></p>
+<p>在合成的svg里把这个fill的都给干掉。</p>
+<p>最后的效果：</p>
+<p><img src="http://7xw3j4.com1.z0.glb.clouddn.com/QQ20160920-2@2x.png" alt=""></p>
+<p>移动端的小图标最起码解决方案我有了。😄😝😝。</p>
+<p>就是上面的鬼问题困扰了我一天，导致我昨天该发的博客现在才能发。哈哈，通过这个问题也让我对svg有了更深的理解。感谢这个问题。</p>
+<p>好了，我也不说了，该关上电脑，起身，收拾行李，香港🇭🇰、澳门🇲🇴走起。</p>
+<p>祝我一路平安，一路happy。</p>
+<p>参考资料：</p>
+<ul>
+<li><p><a href="https://aotu.io/notes/2016/07/09/SVG-Symbol-component-practice/?o2src=juejin&amp;o2layout=compat" target="_blank" rel="external">https://aotu.io/notes/2016/07/09/SVG-Symbol-component-practice/?o2src=juejin&amp;o2layout=compat</a></p>
+</li>
+<li><p><a href="https://css-tricks.com/icon-fonts-vs-svg/" target="_blank" rel="external">https://css-tricks.com/icon-fonts-vs-svg/</a></p>
+</li>
+<li><p><a href="https://io-meter.com/2014/07/20/replace-icon-fonts-with-svg/" target="_blank" rel="external">https://io-meter.com/2014/07/20/replace-icon-fonts-with-svg/</a></p>
+</li>
+<li><p><a href="https://css-tricks.com/svg-tabs-using-svg-shape-template/" target="_blank" rel="external">https://css-tricks.com/svg-tabs-using-svg-shape-template/</a></p>
+</li>
+<li><p><a href="http://www.w3cplus.com/svg/styling-svg-use-content-css.html" target="_blank" rel="external">http://www.w3cplus.com/svg/styling-svg-use-content-css.html</a></p>
+</li>
+<li><p><a href="https://codepen.io/FWeinb/post/quick-tip-svg-use-style-two-colors" target="_blank" rel="external">https://codepen.io/FWeinb/post/quick-tip-svg-use-style-two-colors</a></p>
+</li>
+</ul>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/09/20/svg-sprites/" style="float: left;">
-        ← svg-sprites
-    </a>
     
-    
-    <a class="pull-right" href="/2016/08/30/谈谈这半年来看的书/">
-        谈谈这半年来看的书 →
+    <a class="pull-right" href="/2016/09/15/中秋节/">
+        中秋节 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/09/15/中秋节/" data-title="中秋节" data-url="http://yoursite.com/2016/09/15/中秋节/"></div>
+<div class="ds-thread" data-thread-key="2016/09/20/svg-sprites/" data-title="svg-sprites" data-url="http://yoursite.com/2016/09/20/svg-sprites/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"pearyman"};
 (function() {
