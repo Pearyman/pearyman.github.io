@@ -221,9 +221,9 @@
 <p>我当然是不能够屈服的了。</p>
 <p>找了找网上，发现还有人和我出现了一样的问题。</p>
 <p>最终，发现问题的导向是后台再给我response的header头的是这个样子的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;Content-Type:text/json; charset=utf-8&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;Content-Type:text/json; charset=utf-8&apos;</div></pre></td></tr></table></figure>
 <p>一般这里都是为了兼容ie都是写成这个样子的吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;Content-Type:text/html; charset=utf-8&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;Content-Type:text/html; charset=utf-8&apos;</div></pre></td></tr></table></figure>
 <p>IE10可以支持application/json格式的Response了，也就是说低于IE10版本一下的IE浏览器都需要使用text/html格式的Response。所以，索性就都要换成’Content-Type:text/html; charset=utf-8’ 。</p>
 <p>Response头中指定Content-Type为text/html，而并非text/html，是可以解决问题的。这样返回给客户端的是一个JSON字符串（并非JSON对象），无需IE来解析。随后，使用JSON.parse()函数将JSON字符串解析为JSON对象即可。也怪不得在没有改之前 我$.parseJSON这样是会报错的呢，因为人后台直接就把JSON给我搞过来了。。。。</p>
 <p>后来再去别的大网站看看，原来真的都是这样的。</p>
