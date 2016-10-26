@@ -219,9 +219,8 @@
 <p>于是，我马上爬起打开电脑，查找起问题来。</p>
 <p>最终原来是qq的skey。</p>
 <p>好，让我们来了解一下qq的skey的作用：</p>
-<hr>
-<p>`<br>简单的说，QQ空间仅仅是通过cookies中的skey这个参数的值来进行身份验证，有了skey，你就相当于可以绕过QQ的登陆权限，那问题就简单了，我们只需要得到这个值就可以了。如果你想看你的QQ空间的SKEY，就拖动下面的文字到书签保存，再进入到QQ空间，点击刚刚保存的书签，就会弹出你的cookies。</p>
-<h2 id=""><a href="#" class="headerlink" title="`"></a>`</h2><p>显而易见，skey的安全作用是很大的。而且，qq每一天的凌晨几点都会更新一个新的skey。也就是每天一更新。</p>
+<p><code>简单的说，QQ空间仅仅是通过cookies中的skey这个参数的值来进行身份验证，有了skey，你就相当于可以绕过QQ的登陆权限，那问题就简单了，我们只需要得到这个值就可以了。如果你想看你的QQ空间的SKEY，就拖动下面的文字到书签保存，再进入到QQ空间，点击刚刚保存的书签，就会弹出你的cookies。</code></p>
+<p>显而易见，skey的安全作用是很大的。而且，qq每一天的凌晨几点都会更新一个新的skey。也就是每天一更新。</p>
 <p>当我每天需要这个skey进行签到的时候，昨天的skey就不可以了，所以也就出现了第二天签不上的情况。</p>
 <p>那么问题就来了，怎么样才能让这个脚本成功的每天都签上到呢？</p>
 <h3 id="第一种方法（放弃）"><a href="#第一种方法（放弃）" class="headerlink" title="第一种方法（放弃）"></a>第一种方法（放弃）</h3><p>我首先想到的就是php中的curl，用它来模拟登录qq，获得cookie拿到skey，再签到。</p>
@@ -229,7 +228,7 @@
 <p>所以，这种最常理的方法反而让我pass了。</p>
 <h3 id="第二种方法-半自动方法"><a href="#第二种方法-半自动方法" class="headerlink" title="第二种方法 (半自动方法)"></a>第二种方法 (半自动方法)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.cookie.match(/(uin|skey)=(.+?);/g);</div></pre></td></tr></table></figure>
 <p>从qq客户端登录空间、邮箱等地方，然后获得skey，然后经过hash 将skey同步到vps的文件中</p>
-<p>对 就是这样 我们终于说到了今天我要说的主题—webhooks</p>
+<p>对 就是这样 我们终于说到了今天我要说的主题—<code>webhooks</code></p>
 <p>webhooks是在github、gitlab上的一个钩子，当我push到github这个项目上时</p>
 <p>就会触发webhooks，向远程的vps服务器上你配置好的地址上发一个http post</p>
 <p>从而触发在服务器上的git pull 脚本。</p>
