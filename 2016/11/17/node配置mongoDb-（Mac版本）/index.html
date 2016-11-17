@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>android上textarea导致页面放大 | Pearyman</title>
+  <title>node配置mongoDb （Mac版本） | Pearyman</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -197,45 +197,51 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-11-11T08:20:23.000Z" itemprop="datePublished">
-          2016-11-11
+      <time datetime="2016-11-17T10:06:25.000Z" itemprop="datePublished">
+          2016-11-17
       </time>
     
     
     | 
-    <a href='/tags/css3-html5/'>css3 html5</a>
+    <a href='/tags/nodejs/'>nodejs</a>
     
     
 </span>
-                <h1>android上textarea导致页面放大</h1>
+                <h1>node配置mongoDb （Mac版本）</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>一般在h5页面中，我们都是通过meta来解决这个问题的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;/&gt;</div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;/&gt;</div></pre></td></tr></table></figure>
-<p>但是在一些锤子（🔨）这样的手机上，当把h5页面嵌入到app中时，会出现focus上textarea了之后，页面会被页面放大的问题。</p>
-<p>经过查证，是浏览器默认是16px的字体，当你的字体小于的时候，手机会自动将你的字体变成16px。</p>
-<p>但要是为了解决不放大页面的问题，只好通过下面这种方法来解决。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@media only screen</div><div class="line">and (min-device-width : 320px)</div><div class="line">and (max-device-width : 1024px) &#123;</div><div class="line">	select:focus,</div><div class="line">	textarea:focus,</div><div class="line">	input:focus &#123;</div><div class="line">		font-size: 16px !important;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      		<p>Mac下连接Mongo对比window来说还是比较简单的。以我今天配置的为例：</p>
+<h3 id="1-首先去mongodb官网去下载安装包，然后解压到Documents-下面。"><a href="#1-首先去mongodb官网去下载安装包，然后解压到Documents-下面。" class="headerlink" title="1. 首先去mongodb官网去下载安装包，然后解压到Documents/下面。"></a>1. 首先去<a href="https://www.mongodb.com/download-center?jmp=nav#community" target="_blank" rel="external">mongodb官网</a>去下载安装包，然后解压到Documents/下面。</h3><p><img width="619" alt="qq20161117-0 2x" src="https://cloud.githubusercontent.com/assets/6932025/20384003/0dacc5a8-aced-11e6-8d57-441fc859c524.png"></p>
+<h3 id="2-然后在mongodb下面创建两个文件夹（准确的说是三个）"><a href="#2-然后在mongodb下面创建两个文件夹（准确的说是三个）" class="headerlink" title="2.  然后在mongodb下面创建两个文件夹（准确的说是三个）"></a>2.  然后在mongodb下面创建两个文件夹（准确的说是三个）</h3><p>data/db  这个是用来存放数据</p>
+<p>etc  存放mongod.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#mongodb config file</div><div class="line">dbpath=/Users/nan/Documents/mongodb/data/db/</div><div class="line">logpath=/Users/nan/Documents/mongodb/mongod.log</div><div class="line">logappend = true</div><div class="line">port = 27017</div><div class="line">fork = true</div><div class="line">auth = true</div></pre></td></tr></table></figure>
+<p>mongodb的默认端口就是27017端口。</p>
+<h3 id="3，-然后要修改系统的环境变量"><a href="#3，-然后要修改系统的环境变量" class="headerlink" title="3， 然后要修改系统的环境变量"></a>3， 然后要修改系统的环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;export PATH=/Users/nan/Documents/mongodb/bin:$PATH&apos;&gt;&gt;~/.bash_profile</div></pre></td></tr></table></figure>
+<p><code>注意</code>:在写conf和修改系统环境变量的时候，记得更换你们自己的系统名字</p>
+<h3 id="4，-重启终端或者重新开启一个终端-检查一下你的环境变量是否添加成功"><a href="#4，-重启终端或者重新开启一个终端-检查一下你的环境变量是否添加成功" class="headerlink" title="4， 重启终端或者重新开启一个终端   检查一下你的环境变量是否添加成功"></a>4， 重启终端或者重新开启一个终端   检查一下你的环境变量是否添加成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
+<h3 id="5，-然后进入-Users-nan-Documents-mongodb"><a href="#5，-然后进入-Users-nan-Documents-mongodb" class="headerlink" title="5， 然后进入 /Users/nan/Documents/mongodb/"></a>5， 然后进入 /Users/nan/Documents/mongodb/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath &quot;/Users/nan/Documents/mongodb/data&quot;</div></pre></td></tr></table></figure>
+<p><img width="1255" alt="qq20161117-1 2x" src="https://cloud.githubusercontent.com/assets/6932025/20384482/fd0b2148-acee-11e6-96c0-c7c2957072bf.png"></p>
+<p>这个实际上就是Mongo跑起来了。</p>
+<p>然后再重新开启一个命令窗口：mongo</p>
+<p>你就可以尝试操作数据库了。</p>
+<p><img width="1003" alt="qq20161117-2 2x" src="https://cloud.githubusercontent.com/assets/6932025/20384589/4ae9928c-acef-11e6-912c-5fe0af65eb01.png"></p>
+<h3 id="6-浏览器中访问下试试"><a href="#6-浏览器中访问下试试" class="headerlink" title="6 浏览器中访问下试试"></a>6 浏览器中访问下试试</h3><p><img width="649" alt="qq20161117-3 2x" src="https://cloud.githubusercontent.com/assets/6932025/20385094/fd7f4cce-acf0-11e6-9224-3eccc0840c44.png"></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/11/17/node配置mongoDb-（Mac版本）/" style="float: left;">
-        ← node配置mongoDb （Mac版本）
-    </a>
     
-    
-    <a class="pull-right" href="/2016/10/24/脚本签到问题/">
-        脚本签到问题 →
+    <a class="pull-right" href="/2016/11/11/android上textarea导致页面放大/">
+        android上textarea导致页面放大 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/11/11/android上textarea导致页面放大/" data-title="android上textarea导致页面放大" data-url="http://yoursite.com/2016/11/11/android上textarea导致页面放大/"></div>
+<div class="ds-thread" data-thread-key="2016/11/17/node配置mongoDb-（Mac版本）/" data-title="node配置mongoDb （Mac版本）" data-url="http://yoursite.com/2016/11/17/node配置mongoDb-（Mac版本）/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"pearyman"};
 (function() {
