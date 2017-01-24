@@ -214,40 +214,22 @@
       		<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  在今年的1月6号，微信小程序正式的发布了。其中它的好处我就不在这里说了，主要的思想就是借助于微信强大平台的导流功能，将小程序内嵌在微信中，实现了即用即走的功能。但这后面实际上也足以暴露出腾讯的野心，目测是要微信成为一款OS。</p>
 <p>  目前的开发只能是企业账号注册的，每一个企业账号最多只能绑定不超过十个开发者账号，暂时是不支持个人开发者注册的。</p>
 <h3 id="1-简易教程"><a href="#1-简易教程" class="headerlink" title="1,简易教程"></a>1,简易教程</h3><p>在我们了解一项新工具的时候，得到的信息肯定是通过它的官方文档。同样这里，我也就不在赘诉一些文档中的内容。只是说一些再跑的过程中的点，让大家弄的更顺利些。</p>
-<ul>
-<li>在下载完开发IDE后，首次登录需要填写appid。如图：</li>
-</ul>
-<p><img src="https://cloud.githubusercontent.com/assets/6932025/22239673/a96a4f5c-e252-11e6-9574-0431aca0aba0.png" alt="image"></p>
-<ul>
-<li>关于app.json</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;pages&quot;:[</div><div class="line">    &quot;pages/index/index&quot;,  //首页入口</div><div class="line">    &quot;pages/logs/logs&quot;       //日志入口</div><div class="line">  ],</div><div class="line">  &quot;window&quot;:&#123;</div><div class="line">    &quot;backgroundTextStyle&quot;:&quot;light&quot;,  //文档样式</div><div class="line">    &quot;navigationBarBackgroundColor&quot;: &quot;#000&quot;, //标题背景</div><div class="line">    &quot;navigationBarTitleText&quot;: &quot;WeChat&quot;,  //标题</div><div class="line">    &quot;navigationBarTextStyle&quot;:&quot;#fff&quot;  //标题颜色</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="在下载完开发IDE后，首次登录需要填写appid。如图："><a href="#在下载完开发IDE后，首次登录需要填写appid。如图：" class="headerlink" title="在下载完开发IDE后，首次登录需要填写appid。如图："></a>在下载完开发IDE后，首次登录需要填写appid。如图：</h4><p><img src="https://cloud.githubusercontent.com/assets/6932025/22239673/a96a4f5c-e252-11e6-9574-0431aca0aba0.png" alt="image"></p>
+<h4 id="关于app-json"><a href="#关于app-json" class="headerlink" title="关于app.json"></a>关于app.json</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;pages&quot;:[</div><div class="line">    &quot;pages/index/index&quot;,  //首页入口</div><div class="line">    &quot;pages/logs/logs&quot;       //日志入口</div><div class="line">  ],</div><div class="line">  &quot;window&quot;:&#123;</div><div class="line">    &quot;backgroundTextStyle&quot;:&quot;light&quot;,  //文档样式</div><div class="line">    &quot;navigationBarBackgroundColor&quot;: &quot;#000&quot;, //标题背景</div><div class="line">    &quot;navigationBarTitleText&quot;: &quot;WeChat&quot;,  //标题</div><div class="line">    &quot;navigationBarTextStyle&quot;:&quot;#fff&quot;  //标题颜色</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>app.json是小程序的全局配置文件，我们可以在这里面很清晰的看到小程序都是由哪些页面组成的，小程序的导航样式等等。但是有一个坑是，这个页面是不能够加任何注释的。所以，<code>大家不要拷贝我上面写的这段app.json文件，因为我为了方便大家理解，都在后面添加了注释</code>。</p>
-<ul>
-<li>小程序的样式文件log.wxss</li>
-</ul>
-<p>同样拿个示例代码：</p>
+<h4 id="小程序的样式文件log-wxss"><a href="#小程序的样式文件log-wxss" class="headerlink" title="小程序的样式文件log.wxss"></a>小程序的样式文件log.wxss</h4><p>同样拿个示例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.log-list &#123;</div><div class="line">  display: flex;</div><div class="line">  flex-direction: column;</div><div class="line">  padding: 40rpx;</div><div class="line">&#125;</div><div class="line">.log-item &#123;</div><div class="line">  margin: 10rpx;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其实，作为前端工程师我们对书写css已经很轻车熟路了。但是当看到log.wxss时，或许有点懵逼，但不用紧张，实际上这就是解析模板需要解析的后缀 不一样而已。小程序中的样式文件同样是按正常书写的css写法差不多。但需要注意的是</p>
 <p>1， 不支持less，sass写法，如果坚持要写，可以通过编译工具进行编译</p>
 <p>2，过去我们一直都在纠结于px em rem vw vh等的换算关系，那么现在小程序又出了一个基于系统的单位—rpx。rpx实际上就是系统级的rem（把页面按比例分割750份，1rpx=window.innerWidth/750），或者scale伸缩布局的width=750。也就是说，微信小程序的rpx布局帮大家把rem布局的js设置根元素字体尺寸这步省了，或者减少了scale伸缩布局不能开启gpu raster的问题。通过rpx，大家只需要根据750的设计稿写代码即可，不必担心它在各个平台的适配情况，实际上在各个平台都会长得一样，从此妈妈再也不用担心我的页面适配问题啦。</p>
-<ul>
-<li>小程序中的wxml</li>
-</ul>
-<p>先上段示例代码：</p>
+<h4 id="小程序中的wxml"><a href="#小程序中的wxml" class="headerlink" title="小程序中的wxml"></a>小程序中的wxml</h4><p>先上段示例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;view class=&quot;container&quot;&gt;</div><div class="line">  &lt;view  bindtap=&quot;bindViewTap&quot; class=&quot;userinfo&quot;&gt;</div><div class="line">    &lt;image class=&quot;userinfo-avatar&quot; src=&quot;&#123;&#123;userInfo.avatarUrl&#125;&#125;&quot; background-size=&quot;cover&quot;&gt;&lt;/image&gt;</div><div class="line">    &lt;text class=&quot;userinfo-nickname&quot;&gt;&#123;&#123;userInfo.nickName&#125;&#125;&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">  &lt;view class=&quot;usermotto&quot;&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;&#123;&#123;motto&#125;&#125;&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div></pre></td></tr></table></figure>
 <p>这个就好比是前端静态页面中的html。代码中我们可以看到不太一样的有一些地方。</p>
 <p>1，<view>你可以把这个标签理解成div</view></p>
 <p>2，bindTap 如果你写过vue，相信这种绑定时间的方式你已经轻车熟路了</p>
 <p>3，mustache 渲染数据的写法，同样也是非常熟悉的了</p>
 <p>4，<image>同理，人家已经给你封装好啦，你直接拿去用吧</image></p>
-<ul>
-<li><p>当你改动完一个文件的时候，有的时候效果会实时出来。但有的时候，需要你自己强制刷新一下。</p>
-</li>
-<li><p>同样你也可以在开发者工具左侧菜单的下，找到‘项目’，点击预览，就会生成一个有有效期的二维码了，扫上即可手机浏览。</p>
-</li>
-</ul>
-<h3 id="2，内核概述"><a href="#2，内核概述" class="headerlink" title="2，内核概述"></a>2，内核概述</h3><p>在ios上 ，小程序依赖的是javascriptCore</p>
+<h4 id="当你改动完一个文件的时候，有的时候效果会实时出来。但有的时候，需要你自己强制刷新一下。"><a href="#当你改动完一个文件的时候，有的时候效果会实时出来。但有的时候，需要你自己强制刷新一下。" class="headerlink" title="当你改动完一个文件的时候，有的时候效果会实时出来。但有的时候，需要你自己强制刷新一下。"></a>当你改动完一个文件的时候，有的时候效果会实时出来。但有的时候，需要你自己强制刷新一下。</h4><h4 id="同样你也可以在开发者工具左侧菜单的下，找到‘项目’，点击预览，就会生成一个有有效期的二维码了，扫上即可手机浏览。"><a href="#同样你也可以在开发者工具左侧菜单的下，找到‘项目’，点击预览，就会生成一个有有效期的二维码了，扫上即可手机浏览。" class="headerlink" title="同样你也可以在开发者工具左侧菜单的下，找到‘项目’，点击预览，就会生成一个有有效期的二维码了，扫上即可手机浏览。"></a>同样你也可以在开发者工具左侧菜单的下，找到‘项目’，点击预览，就会生成一个有有效期的二维码了，扫上即可手机浏览。</h4><h3 id="2，内核概述"><a href="#2，内核概述" class="headerlink" title="2，内核概述"></a>2，内核概述</h3><p>在ios上 ，小程序依赖的是javascriptCore</p>
 <p>在androld上，小程序走的是腾讯的X5(关于X5,实际上就是腾讯基于开源的webkit内核进行了仔细更改(xia bian luan gai)得以使在android上的小程序性能得以优化)</p>
 <p>而在小程序开发的IDE上，实际上使用的是NW(node-webkit)开发的。</p>
 <h3 id="3，简要总结"><a href="#3，简要总结" class="headerlink" title="3，简要总结"></a>3，简要总结</h3><p>  在微信提出小程序的这个理念了之后，实际上在业内就起了很大的波澜。总是有人在说腾讯会借着大流量的优势，而微信小程序的优势也会很明显，不用下载，即来即用。但是，我认为还是取代不了app的。若是一些交互复杂的开发成app会更合适。而一些做新闻聚合简单交互的倒是可以在小程序上做下尝试。毕竟开发成本很小，而且效率会很高。</p>
