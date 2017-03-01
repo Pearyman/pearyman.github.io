@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2017 | Pearyman</title>
+  <title>常见的git工作流 | Pearyman</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -74,7 +74,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -191,87 +191,88 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(http://ac-a5zjlnxg.clouddn.com/6100fc0916c69e91.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>因上努力,果上随缘。</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/03/01/常见的git工作流/">常见的git工作流</a></h4>
-                            
-                            <p><time datetime="2017-03-01T09:15:43.000Z"><a href="/2017/03/01/常见的git工作流/">2017-03-01</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/24/小程序简要/">小程序简要</a></h4>
-                            
-                            <p><time datetime="2017-01-24T09:47:47.000Z"><a href="/2017/01/24/小程序简要/">2017-01-24</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/08/2017让我们在一起/">2017让我们在一起</a></h4>
-                            
-                            <p><time datetime="2017-01-08T11:42:14.000Z"><a href="/2017/01/08/2017让我们在一起/">2017-01-08</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-03-01T09:15:43.000Z" itemprop="datePublished">
+          2017-03-01
+      </time>
+    
+    
+    | 
+    <a href='/tags/git/'>git</a>
+    
+    
+</span>
+                <h1>常见的git工作流</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>随着我们由svn迁移到git，我们也是不断的在探索一种安全可靠的工作流以提高工作效率。但又同时考虑到我们由中心集中式的思维转变为分布式版本系统的成本，所以目前效率云上采用的项目工作方式是–分支开发，分支发布。实际上这个和svn的思路转化不大，但感觉没有发挥出git分布式的好处。所以，介绍一下几种常见的git工作流，以方便大家更深层次的了解git的工作流模式。</p>
+<h3 id="git工作流–分支式工作流"><a href="#git工作流–分支式工作流" class="headerlink" title="git工作流–分支式工作流"></a>git工作流–分支式工作流</h3><p>在我们了解了集中分支工作流之后，下面我们来看这一种工作流—功能分支工作流。这种工作流主要有两个特点：<br>1，专门的功能在特定的分支上进行开发，逻辑更清晰，不干扰主代码库,主代码库只用于部署上线代码；<br>2，在功能开发完毕后，我们需要将代码合并到主代码库。这个时候我们就会新建一个pull request（merge reuqest）, 当然在这一步，我们可以进项code reciew，可以帮助团队对代码质量和规范进行比较严格的把控。<br><img src="https://cloud.githubusercontent.com/assets/6932025/23405426/2393856a-fdf5-11e6-9bdd-d9b596e75a69.png" alt="wx20170228-203232"></p>
+<p>举个例子：</p>
+<p>唐僧师傅交给悟空负责开发一个新的需求，这个时候，悟空接到开发任务，需要从最新的主分支上独立出来一个分支来工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature-monkey master</div></pre></td></tr></table></figure></p>
+<p>当然这种情况下，悟空开始不断的提交修改。悟空辛苦开发了一天，该下班回家吃饭了。这个时候悟空需要把他当天写的代码提交到远程上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m “some message”</div><div class="line">git push origin feature-A</div></pre></td></tr></table></figure>
+<p>这个时候，远程即有了<code>feature-monkey</code>的所对应的远程分支<code>origin/feature-monkey</code>。这种把代码推到远程的方式有效的解决了代码丢失的问题。比如你的电脑丢了、坏了、进水了，第二天你只需要拿来另外一台电脑，安上git，轻松继续开发。</p>
+<p>几天后，悟空的这个功能开发完毕。<code>feature-monkey</code>这个分支需要合并主干(master)进行上线。这个时候，悟空需要创建一个<code>merge request</code>(pull request)，并将指向人指向经理唐僧师傅。唐僧师傅发现<code>merge request</code>，开始<code>code review</code>，发现悟空的代码没有问题允许合并到主分支。然后唐僧师傅进行合并，打tag进行上线操作。</p>
+<p>当然，如果悟空同学的代码质量不佳或者有Bug，会被师傅打回重构代码。需要再进行一次编辑、暂存、提交。</p>
+<p>同时，当一个分支被合并上线后，那么这个分支的声明周期就结束了，可以删除。</p>
+<h3 id="git工作流–集中式工作流"><a href="#git工作流–集中式工作流" class="headerlink" title="git工作流–集中式工作流"></a>git工作流–集中式工作流</h3><p><img src="https://cloud.githubusercontent.com/assets/6932025/23448550/a280bbda-fe8c-11e6-8d5e-0a58589f13c6.png" alt="wx20170301-143735"></p>
+<p>举个例子：</p>
+<p>悟空、八戒和沙僧<br>实际上这种开发方式有点类似svn，开发人员基于master克隆项目进行本地开发，更改、提交都是本地的提交，这一点也是和svn类似。本地的提交是和远程的主干完全隔离的，等到合适的时机在进行远程的提交同步。</p>
+<p>总结一下，集中式工作流就是维持一个中央库(master)，每个人克隆master，各自的提交到本地，在合适的时间节点push到master。</p>
+<h3 id="git工作流–gitflow工作流"><a href="#git工作流–gitflow工作流" class="headerlink" title="git工作流–gitflow工作流"></a>git工作流–gitflow工作流</h3><p>Gitflow工作流为代码的开发和设计制作了一个较为严格的分支模型。这种方式虽然比功能分支的工作流稍微复杂一些，但这种方式恰恰对较大的项目管理有着很好的效果。</p>
+<p>这种工作流的方式是将不同的分支分配了特定的角色，并且严格的说明了什么时候该操作，什么时候该交互。极大的利用了git分支的优点。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/6932025/23448097/f43327a4-fe89-11e6-9517-e3faccbe83ea.png" alt="84bf247a-01df-44a4-b98a-9d2304fab3f1"></p>
+<p>当然，我们还是要看图说话，先来说一说这些分支的具体作用：</p>
+<p><code>Master</code>分支： 只允许打tag以及版本发布，不允许提交代码。生命周期自然是无限长的稳定分支。<br><code>develop</code>分支： 用来接收开发分支以及<code>bugfix</code>分支的代码，正常情况下很少从<code>develop</code>分支直接开发提交代码。生命周期也是无限长的不稳定分支。<br><code>release</code>分支：功能开发完成后，用于准备生产版本。允许小错误的修复。<br><code>feature</code>分支： 功能开发分支，用于一个项目或者功能的开发。<br><code>bugfix</code>分支： 此分支用于解决开发中的bug，bug解决完成合并过后，此分支的生命周期就结束。<br><code>hotfix</code>分支： 用于解决线上紧急Bug。</p>
+<p>举个例子：</p>
+<p>唐僧师傅给八戒分配了一个去化缘的任务，八戒接到任务，马上开整。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature-beg develop</div></pre></td></tr></table></figure></p>
+<p>八戒的开发效率很快，几天之后，这个功能开发完毕了，需要合并到develop分支上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout develop</div><div class="line">git merge —no-ff feature-beg</div></pre></td></tr></table></figure></p>
+<p>但是谁却想八戒是个粗心的家伙，<code>develop</code>分支上出现了几个小问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b bugfix-250 develop</div></pre></td></tr></table></figure></p>
+<p>这个时候八戒需要基于<code>develop</code>创建<code>bugfix-250</code>分支来修复这几个小问题。修复完毕后合并到<code>develop</code>分支。</p>
+<p>这个时候进入预生产环境环节，比如上一期的小版本是<code>release-1.1</code>,那么本期的也是一个小功能开发的话，八戒建立了<code>release-1.2</code>版本分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b release-1.2 develop</div></pre></td></tr></table></figure></p>
+<p>这个分支会存在的时间是在版本发布之前，当版本发布之后，这个分支的声明周期就不在了。有时候的小的错误修复也是在本分支进行的。当然是严禁在本分支添加大功能的。最后，八戒需要等待的是版本发布。</p>
+<p>终于等到了这一天，八戒开发的要上线了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git merge —no-off release-1.2</div><div class="line">git tag -a 1.2</div></pre></td></tr></table></figure></p>
+<p>当然，为了保证八戒所写的代码在<code>master</code>和<code>develop</code>的一致性，还需要合并一下<code>develop</code>。</p>
+<p>谁知道八戒通过了众多仙女姐姐层层检测之后，线上又出现了一点瑕疵问题。这个时候八戒这么做的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b hoxfix-250 master</div></pre></td></tr></table></figure></p>
+<p>完成修补工作之后，八戒需要合并<code>master</code>，并上线。项目终于上线了，八戒很开心。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>其实不论是什么版本管理工具，只要有一种可靠的工作流方式或者是提升我们的工作效率，那就是适合我们的方式。git的工作流还有一些，比如交叉工作流等，这一些常玩github提过pull request的同学会深有体会。我只是介绍了几种我们日常开发的过程中常见的工作流，希望大家能够对git有一些更加深入的认识。</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p></p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2017/01/24/小程序简要/">
+        小程序简要 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2017/03/01/常见的git工作流/" data-title="常见的git工作流" data-url="http://yoursite.com/2017/03/01/常见的git工作流/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"pearyman"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
